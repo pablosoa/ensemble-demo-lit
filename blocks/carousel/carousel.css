@@ -1,0 +1,40 @@
+.carousel-wrapper {
+  width: 100%;
+  overflow: hidden;
+}
+
+.carousel-wrapper .wrapperDiv {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(auto, 1fr));
+  column-gap: 100px;
+  row-gap: 10px;
+  transition: transform 0.3s ease;
+}
+
+.carousel-wrapper .wrapperDiv>div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 22vw;
+
+  @media screen and (max-width: 768px) {
+    width: 40vw;
+  }
+}
+
+.carousel-wrapper .arrowDiv {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.carousel-wrapper button {
+  background-color: transparent;
+  border: none;
+}
+
+.carousel-wrapper button:disabled {
+  background-color: transparent;
+  border: none;
+  opacity: 0.5;
+}
