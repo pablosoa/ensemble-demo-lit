@@ -3,7 +3,7 @@ import { createOptimizedPicture } from "../../scripts/lib-franklin.js";
 var mediumSize = window.matchMedia(
   "(max-width: 1350px) and (min-width: 768px)"
 );
-const SCROLL_DISTANCE = 200;
+const SCROLL_DISTANCE = 255;
 var smallSize = window.matchMedia("(max-width: 768px)");
 export default function decorate(block) {
   /* change to ul, li */
@@ -89,26 +89,19 @@ const addCarousel = (block, ul) => {
   buttonLeft.innerHTML = "<img src='../../icons/leftArrow.svg'/>";
   const buttonRight = document.createElement("button");
   buttonRight.innerHTML = "<img src='../../icons/rightArrow.svg'/>";
-  let offset = ul.scrollLeft;
 
   buttonRight.addEventListener("click", function () {
-    if (offset + SCROLL_DISTANCE <= ul.scrollWidth - 100) {
-      offset += SCROLL_DISTANCE;
-      ul.scroll({
-        left: offset,
-        behavior: "smooth",
-      });
-    }
+    ul.scroll({
+      left: ul.scrollLeft + SCROLL_DISTANCE,
+      behavior: "smooth",
+    });
   });
 
   buttonLeft.addEventListener("click", function () {
-    if (offset >= SCROLL_DISTANCE) {
-      offset -= SCROLL_DISTANCE;
-      ul.scroll({
-        left: offset,
-        behavior: "smooth",
-      });
-    }
+    ul.scroll({
+      left: ul.scrollLeft - SCROLL_DISTANCE,
+      behavior: "smooth",
+    });
   });
 
   arrowDiv.append(buttonLeft);
