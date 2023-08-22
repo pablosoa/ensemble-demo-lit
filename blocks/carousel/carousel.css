@@ -1,9 +1,13 @@
 .carousel-wrapper {
   width: 100%;
+}
+
+.carousel-wrapper .carousel-div {
+  width: 100%;
   overflow: hidden;
 }
 
-.carousel-wrapper .wrapperDiv {
+.carousel-wrapper .wrapper-div {
   display: grid;
   grid-template-columns: repeat(6, minmax(auto, 1fr));
   column-gap: 100px;
@@ -11,14 +15,14 @@
   transition: transform 0.3s ease;
 }
 
-.carousel-wrapper .wrapperDiv>div {
+.carousel-wrapper .wrapper-div>div {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 22vw;
+  width: 25vw;
 
   @media screen and (max-width: 768px) {
-    width: 40vw;
+    width: 35vw;
   }
 }
 

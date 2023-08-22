@@ -308,16 +308,8 @@ main .section {
   padding: 32px 16px;
 }
 
-@media (min-width: 600px) {
-  main .section {
-    padding: 64px 16px;
-  }
-}
-
-@media (min-width: 900px) {
-  .section>div {
-    margin: auto;
-  }
+.section>div {
+  margin: auto;
 }
 
 /* section metadata */

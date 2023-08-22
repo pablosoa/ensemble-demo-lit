@@ -1,8 +1,9 @@
 export default function decorate(block) {
-  const carouselWrapper = document.createElement("div");
+  const carouselDiv = document.createElement("div");
+  carouselDiv.className = "carousel-div";
   const wrapperDiv = document.createElement("div");
-  wrapperDiv.className = "wrapperDiv";
-  wrapperDiv.id = "wrapperDiv";
+  wrapperDiv.className = "wrapper-div";
+  wrapperDiv.id = "wrapper-div";
   wrapperDiv.innerHTML = block.innerHTML;
 
   const arrowDiv = document.createElement("div");
@@ -14,31 +15,22 @@ export default function decorate(block) {
 
   arrowDiv.append(buttonLeft);
   arrowDiv.append(buttonRight);
-  carouselWrapper.append(wrapperDiv);
-  carouselWrapper.append(arrowDiv);
-  block.replaceWith(carouselWrapper);
-
-  // move carousel
-  let position = 0;
-  function moveCarousel() {
-    // const wrapperDivWidth = document.getElementById("wrapperDiv").offsetWidth;
-    // const carouselDivWidth =
-    //   document.getElementsByClassName("carousel-wrapper")[0].offsetWidth;
-    wrapperDiv.style.transform = `translateX(-${
-      position * document.body.offsetWidth
-    }px)`;
-    // buttonRight.disabled =
-    //   carouselDivWidth - position * document.body.offsetWidth <= 0;
-    buttonLeft.disabled = position === 0;
-  }
+  block.innerHTML = "";
+  carouselDiv.append(wrapperDiv);
+  block.append(carouselDiv);
+  block.append(arrowDiv);
 
   buttonRight.addEventListener("click", function () {
-    position = Math.min(position + 1, wrapperDiv.children.length - 3);
-    moveCarousel();
+    carouselDiv.scroll({
+      left: carouselDiv.scrollLeft + carouselDiv.offsetWidth,
+      behavior: "smooth",
+    });
   });
 
   buttonLeft.addEventListener("click", function () {
-    position = Math.max(position - 1, 0);
-    moveCarousel();
+    carouselDiv.scroll({
+      left: carouselDiv.scrollLeft - carouselDiv.offsetWidth,
+      behavior: "smooth",
+    });
   });
 }
