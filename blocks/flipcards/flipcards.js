@@ -84,7 +84,7 @@ const changeBriefText = (cardsBody, originalContent) => {
 
 const addCarousel = (block, ul) => {
   const arrowDiv = document.createElement("div");
-  arrowDiv.className = "arrowDiv";
+  arrowDiv.className = "arrow-div";
   const buttonLeft = document.createElement("button");
   buttonLeft.innerHTML = "<img src='../../icons/leftArrow.svg'/>";
   const buttonRight = document.createElement("button");
@@ -110,7 +110,7 @@ const addCarousel = (block, ul) => {
   if (smallSize.matches) {
     block.append(arrowDiv);
   } else {
-    const arrowDiv = block.querySelector(".arrowDiv");
+    const arrowDiv = block.querySelector(".arrow-div");
     if (arrowDiv) {
       block.removeChild(arrowDiv);
     }

@@ -7,7 +7,7 @@ export default function decorate(block) {
   wrapperDiv.innerHTML = block.innerHTML;
 
   const arrowDiv = document.createElement("div");
-  arrowDiv.className = "arrowDiv";
+  arrowDiv.className = "arrow-div";
   const buttonLeft = document.createElement("button");
   buttonLeft.innerHTML = "<img src='../../icons/leftArrow.svg'/>";
   const buttonRight = document.createElement("button");

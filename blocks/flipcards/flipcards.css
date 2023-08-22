@@ -129,7 +129,7 @@
 
 
 /* arrow for carousel  */
-.flipcards .arrowDiv {
+.flipcards .arrow-div {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -137,13 +137,7 @@
 }
 
 
-.flipcards .arrowDiv button {
+.flipcards .arrow-div button {
   background-color: transparent;
   border: none;
-}
-
-.flipcards .arrowDiv button:disabled {
-  background-color: transparent;
-  border: none;
-  opacity: 0.5;
 }

@@ -15,7 +15,7 @@ export default async function decorate(block) {
     "DEBUG",
     "DEPLOY",
   ];
-  let currentText = "DEPLOY";
+  let currentText = listOfFunctions[listOfFunctions.length - 1];
   const random = () => {
     let randomNumber = Math.floor(Math.random() * 5);
     while (listOfFunctions[randomNumber] === currentText) {
