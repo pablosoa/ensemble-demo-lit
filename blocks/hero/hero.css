@@ -14,8 +14,7 @@ main .hero {
   min-height: 300px;
 }
 
-main .hero h2 {
-  max-width: 400px;
+main .hero h1 {
   color: white;
 }
 
@@ -36,7 +35,7 @@ main .hero img {
   height: 100%;
 }
 
-.hero h2 {
+.hero h1 {
   font-weight: bold;
 }
 
@@ -46,6 +45,6 @@ main .hero img {
   display: inline-block;
 }
 
-.hero h2 p {
+.hero h1 p {
   margin: 0;
 }

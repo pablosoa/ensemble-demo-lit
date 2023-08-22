@@ -4,9 +4,9 @@
  */
 
 export default async function decorate(block) {
-  const h2 = block.querySelector("h2");
-  h2.innerHTML = "";
-  const animationText = document.createElement("h2");
+  const h1 = block.querySelector("h1");
+  h1.innerHTML = "";
+  const animationText = document.createElement("h1");
   const listOfFunctions = [
     "DEVELOP",
     "DESIGN",
@@ -26,7 +26,7 @@ export default async function decorate(block) {
 
   setInterval(() => {
     random();
-    animationText.innerHTML = `<p>WE <span id='list-functions'></span></p> ALL THINGS DIGITAL`;
+    animationText.innerHTML = `<p>WE <span id='list-functions'></span></p> <p>ALL THINGS</p> DIGITAL`;
     const listFunctions = animationText.querySelector("#list-functions");
     let i = 0;
     let reverse = false;
@@ -53,6 +53,6 @@ export default async function decorate(block) {
       }
     }, 1400 / (currentText.length * 2));
 
-    h2.replaceWith(animationText);
+    h1.replaceWith(animationText);
   }, 2500);
 }
