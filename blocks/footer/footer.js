@@ -22,6 +22,13 @@ export default async function decorate(block) {
     const footer = document.createElement("div");
     footer.innerHTML = html;
 
+    const links = footer.querySelectorAll("a");
+    links.forEach((l) => {
+      if (l.querySelector("img")) {
+        l.setAttribute("aria-label", "Linkedin");
+      }
+    });
+
     const backgroundImage = footer
       .querySelector(".background")
       .querySelector("img");
