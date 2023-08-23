@@ -118,12 +118,12 @@
 
 /* Contact us link */
 
-.flipcards .cards-card-body-flip a#contact-us {
+.flipcards .cards-card-body-flip a.contact-us-link {
   text-decoration: underline !important;
   color: var(--text-color) !important;
 }
 
-.flipcards .cards-card-body-flip a#contact-us:hover {
+.flipcards .cards-card-body-flip a.contact-us-link:hover {
   color: var(--text-color) !important;
 }
 

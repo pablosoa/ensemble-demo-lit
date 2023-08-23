@@ -79,7 +79,7 @@ const changeBriefText = (cardsBody, originalContent) => {
   const linkHref = cardsBody.querySelector("a").getAttribute("href");
 
   if (mediumSize.matches) {
-    cardsBody.innerHTML = `<div><a id="contact-us" href=${linkHref}>Contact us</a> to learn more about this project</div>`;
+    cardsBody.innerHTML = `<div><a class="contact-us-link" href=${linkHref}>Contact us</a> to learn more about this project</div>`;
   } else {
     cardsBody.innerHTML = originalContent;
   }
