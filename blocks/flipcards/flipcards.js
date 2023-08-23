@@ -1,4 +1,7 @@
-import { createOptimizedPicture } from "../../scripts/lib-franklin.js";
+import {
+  createCarouselArrow,
+  createOptimizedPicture,
+} from "../../scripts/lib-franklin.js";
 
 var mediumSize = window.matchMedia(
   "(max-width: 1350px) and (min-width: 768px)"
@@ -83,29 +86,20 @@ const changeBriefText = (cardsBody, originalContent) => {
 };
 
 const addCarousel = (block, ul) => {
-  const arrowDiv = document.createElement("div");
-  arrowDiv.className = "arrow-div";
-  const buttonLeft = document.createElement("button");
-  buttonLeft.innerHTML = "<img src='../../icons/leftArrow.svg'/>";
-  const buttonRight = document.createElement("button");
-  buttonRight.innerHTML = "<img src='../../icons/rightArrow.svg'/>";
-
-  buttonRight.addEventListener("click", function () {
-    ul.scroll({
-      left: ul.scrollLeft + SCROLL_DISTANCE,
-      behavior: "smooth",
-    });
-  });
-
-  buttonLeft.addEventListener("click", function () {
+  const moveLeft = () => {
     ul.scroll({
       left: ul.scrollLeft - SCROLL_DISTANCE,
       behavior: "smooth",
     });
-  });
+  };
+  const moveRight = () => {
+    ul.scroll({
+      left: ul.scrollLeft + SCROLL_DISTANCE,
+      behavior: "smooth",
+    });
+  };
 
-  arrowDiv.append(buttonLeft);
-  arrowDiv.append(buttonRight);
+  const arrowDiv = createCarouselArrow(moveLeft, moveRight);
 
   if (smallSize.matches) {
     block.append(arrowDiv);
