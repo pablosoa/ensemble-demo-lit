@@ -25,7 +25,7 @@ export default async function decorate(block) {
     currentText = listOfFunctions[randomNumber];
   };
 
-  setInterval(() => {
+  const runningText = () => {
     random();
     animationText.innerHTML = `<p>WE <span id='list-functions'></span></p> <p>ALL THINGS</p> DIGITAL`;
     const listFunctions = animationText.querySelector("#list-functions");
@@ -55,7 +55,11 @@ export default async function decorate(block) {
     }, 1400 / (currentText.length * 2));
 
     h1.replaceWith(animationText);
-  }, 2500);
+  };
+
+  runningText();
+  setInterval(runningText, 2500);
+
   // create info section
   const { pathname } = new URL(href);
   const resp = await fetch(pathname);
