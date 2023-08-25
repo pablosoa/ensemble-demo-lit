@@ -5,6 +5,7 @@
 
 export default async function decorate(block) {
   const h1 = block.querySelector("h1");
+  const href = h1.querySelector("a");
   h1.innerHTML = "";
   const animationText = document.createElement("h1");
   const listOfFunctions = [
@@ -56,36 +57,31 @@ export default async function decorate(block) {
     h1.replaceWith(animationText);
   }, 2500);
   // create info section
-  const btnContainer = block.querySelector(".button-container");
-  if (btnContainer) {
-    const href = btnContainer.querySelector("a");
-    const { pathname } = new URL(href);
-    const resp = await fetch(pathname);
-    const json = await resp.json();
-    const data = [
-      {},
-      {},
-      json.data[0],
-      {},
-      json.data[1],
-      json.data[2],
-      json.data[3],
-      json.data[4],
-      {},
-    ];
-    const infoSection = document.createElement("div");
-    infoSection.className = "info-section";
+  const { pathname } = new URL(href);
+  const resp = await fetch(pathname);
+  const json = await resp.json();
+  const data = [
+    {},
+    {},
+    json.data[0],
+    {},
+    json.data[1],
+    json.data[2],
+    json.data[3],
+    json.data[4],
+    {},
+  ];
+  const infoSection = document.createElement("div");
+  infoSection.className = "info-section";
 
-    infoSection.innerHTML = data
-      .map((i, idx) => {
-        if (!i.stat && !i.description) {
-          return `<div class='blank block-${idx}'></div>`;
-        } else {
-          return `<a href='${i.path}'><div class='block-${idx}'><p class='statistic-text'>${i.stat}</p><p class='description'>${i.description}</p></div></a>`;
-        }
-      })
-      .join("");
-    btnContainer.remove();
-    block.appendChild(infoSection);
-  }
+  infoSection.innerHTML = data
+    .map((i, idx) => {
+      if (!i.stat && !i.description) {
+        return `<div class='blank block-${idx}'></div>`;
+      } else {
+        return `<a href='${i.path}'><div class='block-${idx}'><p class='statistic-text'>${i.stat}</p><p class='description'>${i.description}</p></div></a>`;
+      }
+    })
+    .join("");
+  block.appendChild(infoSection);
 }
