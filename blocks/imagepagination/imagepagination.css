@@ -1,0 +1,41 @@
+.imagepagination-wrapper {
+  width: 100%;
+}
+
+.imagepagination-wrapper .imagepagination {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+
+.imagepagination-wrapper .list-customers {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(auto, 1fr));
+  column-gap: 100px;
+  row-gap: 10px;
+  transition: transform 0.3s ease;
+  justify-items: center;
+  width: 100%;
+
+  @media screen and (max-width: 768px) {
+    grid-template-columns: repeat(2, minmax(auto, 1fr));
+  }
+}
+
+.imagepagination-wrapper .list-customers img {
+  max-width: 200px;
+}
+
+.imagepagination-wrapper .arrow-div {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.imagepagination-wrapper button {
+  background-color: transparent;
+  border: none;
+}
